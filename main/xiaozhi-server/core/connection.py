@@ -814,7 +814,7 @@ class ConnectionHandler:
                     content_arguments += content
 
                 if not tool_call_flag and content_arguments.startswith("<tool_call>"):
-                    # print("content_arguments", content_arguments)
+                    print("content_arguments", content_arguments)
                     tool_call_flag = True
 
                 if tools_call is not None and len(tools_call) > 0:

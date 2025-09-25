@@ -325,7 +325,7 @@ class TTSProviderBase(ABC):
                     continue
 
                 if self.conn.client_abort:
-                    logger.bind(tag=TAG).debug("收到打断信号，跳过当前音频数据")
+                    # logger.bind(tag=TAG).debug("收到打断信号，跳过当前音频数据")
                     enqueue_text, enqueue_audio = None, []
                     continue
 

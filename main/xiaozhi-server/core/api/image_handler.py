@@ -121,7 +121,6 @@ class ImageHandler(BaseHandler):
             response = web.Response(
                 text=json.dumps(return_json, separators=(",", ":")),
                 content_type="application/json",
-                status=400,
             )
         except Exception as e:
             self.logger.error(f"Image upload exception: {e}")
@@ -129,7 +128,6 @@ class ImageHandler(BaseHandler):
             response = web.Response(
                 text=json.dumps(return_json, separators=(",", ":")),
                 content_type="application/json",
-                status=500,
             )
         finally:
             if response is not None:

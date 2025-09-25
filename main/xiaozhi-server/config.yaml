@@ -227,6 +227,8 @@ Intent:
       - get_weather
       - get_news_from_newsnow
       - play_music
+      - ootd
+      
   function_call:
     # 不需要动type
     type: function_call
@@ -241,7 +243,7 @@ Intent:
       # play_music是服务器自带的音乐播放，hass_play_music是通过home assistant控制的独立外部程序音乐播放
       # 如果用了hass_play_music，就不要开启play_music，两者只留一个
       - play_music
-      - recommend_clothes
+      - ootd
       #- hass_get_state
       #- hass_set_state
       #- hass_play_music
@@ -303,8 +305,8 @@ ASR:
     # DoubaoASR和DoubaoStreamASR的区别是：DoubaoASR是按次收费，DoubaoStreamASR是按时收费
     # 一般来说按次收费的更便宜，但是DoubaoStreamASR使用了大模型技术，效果更好
     type: doubao
-    appid: 你的火山引擎语音合成服务appid
-    access_token: 你的火山引擎语音合成服务access_token
+    appid: 1195954553
+    access_token: 5MSg4T3o0Krpu8y3no722NQnoqa8dKe_
     cluster: volcengine_input_common
     # 热词、替换词使用流程：https://www.volcengine.com/docs/6561/155738
     boosting_table_name: （选填）你的热词文件名称
@@ -317,8 +319,8 @@ ASR:
     # 开通地址https://console.volcengine.com/speech/service/10011
     # 一般来说按次收费的更便宜，但是DoubaoStreamASR使用了大模型技术，效果更好
     type: doubao_stream
-    appid: 你的火山引擎语音合成服务appid
-    access_token: 你的火山引擎语音合成服务access_token
+    appid: 1195954553
+    access_token: 5MSg4T3o0Krpu8y3no722NQnoqa8dKe_
     cluster: volcengine_input_common
     # 热词、替换词使用流程：https://www.volcengine.com/docs/6561/155738
     boosting_table_name: （选填）你的热词文件名称
@@ -471,8 +473,8 @@ LLM:
     type: openai
     # 可在这里找到你的 api_key https://bailian.console.aliyun.com/?apiKey=1#/api-key
     base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
-    model_name: qwen-turbo
-    api_key: 你的deepseek web key
+    model_name: qwen-turbo-2025-07-15
+    api_key: sk-b45d79920aa541ef9ec3c62221b4e87b
     temperature: 0.7  # 温度值
     max_tokens: 500   # 最大生成token数
     top_p: 1
@@ -499,7 +501,7 @@ LLM:
     # 开通后，进入这里获取密钥：https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey?apikey=%7B%7D
     base_url: https://ark.cn-beijing.volces.com/api/v3
     model_name: doubao-1-5-pro-32k-250115
-    api_key: 你的doubao web key
+    api_key: 131df74a-a307-4802-8261-f4192403c364
   DeepSeekLLM:
     # 定义LLM API类型
     type: openai
@@ -514,7 +516,7 @@ LLM:
     # 可在这里找到你的api key https://bigmodel.cn/usercenter/proj-mgmt/apikeys
     model_name: glm-4-flash
     url: https://open.bigmodel.cn/api/paas/v4/
-    api_key: 你的chat-glm web key
+    api_key: 31ac991cdc5d421d897f3a0ba660f1e5.eiaAXZ1o0whCSUvY
   OllamaLLM:
     # 定义LLM API类型
     type: ollama
@@ -604,7 +606,7 @@ VLLM:
     # 可在这里找到你的api key https://bigmodel.cn/usercenter/proj-mgmt/apikeys
     model_name: glm-4v-flash  # 智谱AI的视觉模型
     url: https://open.bigmodel.cn/api/paas/v4/
-    api_key: 你的api_key
+    api_key: 31ac991cdc5d421d897f3a0ba660f1e5.eiaAXZ1o0whCSUvY
   QwenVLVLLM:
     type: openai
     model_name: qwen2.5-vl-3b-instruct
@@ -640,8 +642,8 @@ TTS:
     voice: BV001_streaming
     output_dir: tmp/
     authorization: "Bearer;"
-    appid: 你的火山引擎语音合成服务appid
-    access_token: 你的火山引擎语音合成服务access_token
+    appid: 1195954553
+    access_token: 5MSg4T3o0Krpu8y3no722NQnoqa8dKe_
     cluster: volcano_tts
     speed_ratio: 1.0
     volume_ratio: 1.0
@@ -655,10 +657,10 @@ TTS:
     # 如果是机智云，把接口地址换成wss://bytedance.gizwitsapi.com/api/v3/tts/bidirection
     # 机智云不需要天填 appid
     ws_url: wss://openspeech.bytedance.com/api/v3/tts/bidirection
-    appid: 你的火山引擎语音合成服务appid
-    access_token: 你的火山引擎语音合成服务access_token
+    appid: 1195954553
+    access_token: 5MSg4T3o0Krpu8y3no722NQnoqa8dKe_
     resource_id: volc.service_type.10029
-    speaker: zh_female_wanwanxiaohe_moon_bigtts
+    speaker: zh_female_yingtaowanzi_mars_bigtts
     speech_rate: 0
     loudness_rate: 0
     pitch: 0
@@ -823,7 +825,7 @@ TTS:
     output_dir: tmp/
     appkey: 你的阿里云智能语音交互服务项目Appkey
     token: 你的阿里云智能语音交互服务AccessToken，临时的24小时，要长期用下方的access_key_id，access_key_secret
-    voice: longxiaochun 
+    voice: longxiaochun
     access_key_id: 你的阿里云账号access_key_id
     access_key_secret: 你的阿里云账号access_key_secret
     # 截至2025年7月21日大模型音色只有北京节点采用，其他节点暂不支持
