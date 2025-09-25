@@ -18,6 +18,14 @@ ws://127.0.0.1:8000/xiaozhi/v1?from=mqtt_gateway
 ws://你宿主机局域网IP:8000/xiaozhi/v1?from=mqtt_gateway
 ```
 
+## 重要提示
+
+如果你是服务器部署，需要确保服务器`1883`、`8884`、`8007`端口都对外开放。`8884`选择的协议类型是`UDP`，其他是`TCP`。
+
+如果你是服务器部署，需要确保服务器`1883`、`8884`、`8007`端口都对外开放。`8884`选择的协议类型是`UDP`，其他是`TCP`。
+
+如果你是服务器部署，需要确保服务器`1883`、`8884`、`8007`端口都对外开放。`8884`选择的协议类型是`UDP`，其他是`TCP`。
+
 ## 第一步 部署MQTT网关
 
 1. 克隆[改造后的xiaozhi-mqtt-gateway项目](https://github.com/xinnan-tech/xiaozhi-mqtt-gateway.git)：
