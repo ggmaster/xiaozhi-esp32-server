@@ -30,15 +30,15 @@ class ImageTextMessageHandler(TextMessageHandler):
     async def handle(self, conn, msg_json: Dict[str, Any]) -> None:
         try:
             file_name = msg_json.get("file_name")
-            status = msg_json.get("status")
+            status = msg_json.get("status","日常通勤/外出")
             question = msg_json.get("question", "ootd")
 
             if "ootd" not in question:
                 await startToChat(conn, "您的提问不正确，我无法回答您")
                 return
             else:
-                question = "穿搭建议"    
-                await startToChat(conn, f"{question}：\n图片路径:{file_name}\n,场景:{status}")
+                question = "穿搭建议"
+                await startToChat(conn, f"{question}\n图片路径:{file_name}\n场景:{status}")
                 return
         except Exception as e:
             conn.logger.bind(tag=TAG).error(f"异常：{str(e)}")
