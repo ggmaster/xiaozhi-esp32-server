@@ -38,7 +38,7 @@ class ImageTextMessageHandler(TextMessageHandler):
                 return
             else:
                 question = "穿搭建议"    
-                await startToChat(conn, f"{question}：\n,file_name:{file_name}\n,status:{status}")
+                await startToChat(conn, f"{question}：\n图片路径:{file_name}\n,场景:{status}")
                 return
         except Exception as e:
             conn.logger.bind(tag=TAG).error(f"异常：{str(e)}")
