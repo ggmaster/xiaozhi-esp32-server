@@ -885,7 +885,16 @@ class ConnectionHandler:
                     "id": function_id,
                     "arguments": function_arguments,
                 }
-
+                
+                # 调用工具前加一句停顿语气
+                self.tts.tts_text_queue.put(
+                        TTSMessageDTO(
+                            sentence_id=self.sentence_id,
+                            sentence_type=SentenceType.MIDDLE,
+                            content_type=ContentType.TEXT,
+                            content_detail="稍等片刻，让我想想啊。。。",
+                        )
+                    )                
                 # 使用统一工具处理器处理所有工具调用
                 result = asyncio.run_coroutine_threadsafe(
                     self.func_handler.handle_llm_function_call(
